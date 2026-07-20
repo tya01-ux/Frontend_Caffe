@@ -7,7 +7,6 @@ import {
   Pencil,
   X,
   Loader2,
-  LogOut,
   Coffee,
   Heart,
   Activity,
@@ -45,7 +44,7 @@ function extractMethodFromDescription(description: string): string | null {
 
 const Profile: React.FC = () => {
   const navigate = useNavigate();
-  const { user, logout, updateProfile } = useAuthStore();
+  const { user, updateProfile } = useAuthStore();
 
   const {
     favorites,
@@ -113,12 +112,7 @@ const Profile: React.FC = () => {
     }
   };
 
-  const handleLogout = () => {
-    if (confirm("Yakin ingin logout?")) {
-      logout();
-      navigate("/login");
-    }
-  };
+  // logout handled via header; no local logout button here
 
   const handleRemoveFavorite = async (cafeId: number) => {
     if (confirm("Hapus cafe ini dari favorit?")) {

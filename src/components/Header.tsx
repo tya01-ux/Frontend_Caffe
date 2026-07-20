@@ -2,8 +2,6 @@ import {
   Home,
   Coffee,
   Star,
-  BarChart3,
-  Info,
   UserCircle,
   Menu,
   X,

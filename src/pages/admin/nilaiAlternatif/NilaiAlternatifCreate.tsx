@@ -7,7 +7,6 @@ import {
   TrendingDown,
   Coffee,
   LayoutGrid,
-  Plus,
 } from "lucide-react";
 import { useCafeCriteriaValueStore } from "../../../store/useCafeCriteriaValue(NilaiAlternatif)";
 import { useCafeStore } from "../../../store/useCaffeStore";

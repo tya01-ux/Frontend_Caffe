@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   Star, Search, MapPin, Loader2, SlidersHorizontal, X,
   ArrowUpDown, Wallet, Compass, Tag, GitCompare, Check,
-  ChevronRight, Trophy, Info, Save, RotateCcw, LayoutGrid,
+  ChevronRight, Trophy, Info, Save, RotateCcw, 
   Building2, Calculator, Wifi, Coffee, Zap, Users, Car,
   Music, Sun, Clock, ParkingCircle, Heart, type LucideIcon,
 } from "lucide-react";
@@ -12,7 +12,7 @@ import { useAuthStore } from "../store/authStore";
 import { useUserCriteriaWeightStore } from "../store/useusercriteriaweightstore";
 import { useCriteriaStore } from "../store/useCriteriaStore";
 import { useTenantStore } from "../store/useTenantStore";
-import { useSPKStore, type SPKMethod as SPKMethodType } from "../store/useSPKStore";
+import { useSPKStore } from "../store/useSPKStore";
 import { useActivityLogStore } from "../store/useActivityLogStore";
 import { useFavoriteStore } from "../store/useFavoriteStore";
 
@@ -71,12 +71,6 @@ function cafeHasFacility(cafe: Cafe, facilityName: string) {
   return cafe.values?.some((v: CafeValue) => v.criteria?.name === facilityName && v.value > 0);
 }
 
-function findValueByCriteriaId(cafe: Cafe, criteriaId: number): CafeValue | undefined {
-  return cafe.values?.find(
-    (v: any) => v.criteriaId === criteriaId || v.criteria?.id === criteriaId
-  );
-}
-
 export function getCriteriaIcon(name: string): LucideIcon {
   const lower = name.toLowerCase();
   if (lower.includes("wifi") || lower.includes("internet")) return Wifi;
@@ -94,7 +88,7 @@ export function getCriteriaIcon(name: string): LucideIcon {
   return Tag;
 }
 
-function getCriteriaDescription(name: string, type: "COST" | "BENEFIT"): string {
+function getCriteriaDescription(_name: string, type: "COST" | "BENEFIT"): string {
   return type === "COST" ? "Semakin rendah nilainya, semakin baik" : "Semakin tinggi nilainya, semakin baik";
 }
 
@@ -694,7 +688,7 @@ export default function CafeList() {
   const { tenants } = useTenantStore();
   const { result: spkResult, calculateSAW, calculateWP, calculateTOPSIS, clearResult } = useSPKStore();
   const { user } = useAuthStore();
-  const { favorites, fetchFavorites, addFavorite, removeFavorite, isFavorited } = useFavoriteStore();
+  const { fetchFavorites, addFavorite, removeFavorite, isFavorited } = useFavoriteStore();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTER);

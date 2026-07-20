@@ -10,9 +10,7 @@ import {
   LogOut,
   Menu,
   X,
-  UserCircle,
   Building2,
-  History,
 } from "lucide-react";
 import { useAuthStore } from "../store/authStore";
 

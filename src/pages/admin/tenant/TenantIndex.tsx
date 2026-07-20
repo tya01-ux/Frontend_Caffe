@@ -11,7 +11,6 @@ import {
   Users,
   Coffee,
   ShieldCheck,
-  MapPin,
 } from "lucide-react";
 import { useTenantStore } from "../../../store/useTenantStore";
 import type { TenantInput } from "../../../store/useTenantStore";
